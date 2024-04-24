@@ -29,6 +29,6 @@ CREATE TABLE IF NOT EXISTS nyc_zillow (
   "RegionID" int8,
   "RegionName" int8,
   "date" DATE,
-  "rent" float8
+  "price" float8
 )
 ;
