@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS nyc_311 (
     "Complaint Type" text,
     "Incident Zip" int8,
     "city" text,
-    "geometry" geometry(POINT, 4326)
+    "geometry" geometry(POINT, 4326),
+    FOREIGN KEY ("Incident Zip") REFERENCES nyc_zipcodes("ZIPCODE")
 );
 
 CREATE TABLE IF NOT EXISTS nyc_tree (
@@ -21,7 +22,8 @@ CREATE TABLE IF NOT EXISTS nyc_tree (
     "spc_latin" text,
     "spc_common" text,
     "zip_city" text,
-    "geometry" geometry(POINT, 4326)
+    "geometry" geometry(POINT, 4326),
+    FOREIGN KEY ("zipcode") REFERENCES nyc_zipcodes("ZIPCODE")
 );
 
 CREATE TABLE IF NOT EXISTS nyc_zillow (
@@ -29,6 +31,6 @@ CREATE TABLE IF NOT EXISTS nyc_zillow (
   "RegionID" int8,
   "RegionName" int8,
   "date" DATE,
-  "price" float8
-)
-;
+  "price" float8,
+  FOREIGN KEY ("RegionName") REFERENCES nyc_zipcodes("ZIPCODE")
+);
